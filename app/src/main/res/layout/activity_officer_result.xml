@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
     <include
@@ -17,14 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:gravity="center"
+        android:gravity="left"
         android:padding="15dp"
-        android:textColor="@color/colorTextBackground"
+        android:textColor="@color/colorBlack"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:background="@color/colorAppGreyLight"
+        android:textSize="@dimen/abc_text_size_title_material"
+        android:background="@color/colorWhite"
         app:typeface="Tw_Cen_MT"/>
 
     <mx.citydevs.hackcdmx.views.CustomTextView
@@ -32,55 +34,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Placa: "
-        android:gravity="center"
+        android:gravity="left"
         android:padding="15dp"
-        android:textColor="@color/colorTextBackground"
+        android:textSize="@dimen/abc_text_size_title_material"
+        android:textColor="@color/colorAppGrey"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/colorAppGreyLight"
+        android:background="@color/colorWhite"
         app:typeface="Tw_Cen_MT"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAppYellow"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:orientation="vertical">
 
     <mx.citydevs.hackcdmx.views.CustomTextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".5"
         android:text="@string/officers_ok"
         android:gravity="center"
-        android:padding="10dp"
+        android:padding="5dp"
+        android:textSize="@dimen/abc_text_size_title_material"
         android:textColor="@color/colorText"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorAppYellow"
+        android:paddingBottom="10dp"
+        android:background="@color/colorWhite"
         app:typeface="Tw_Cen_MT"/>
 
-    <LinearLayout
+    <ImageView
         android:id="@+id/officer_result_evaluate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_weight=".5"
         android:orientation="horizontal"
+        android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/selector_btn_rect"
-        android:padding="15dp">
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/placa"
-            android:layout_gravity="center_vertical"/>
-
-        <mx.citydevs.hackcdmx.views.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/officers_btn_evaluate"
-            android:gravity="center"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorTextBackground"
-            android:textSize="30sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:typeface="Tw_Cen_MT_Bold"/>
-        </LinearLayout>
+        android:src="@drawable/menu3" />
+    </LinearLayout>
 </LinearLayout>

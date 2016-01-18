@@ -21,9 +21,9 @@
     <string name="officers_name_input">Nombre o placa del oficial de tránsito</string>
     <string name="infractions_name_input">Ingresa palabra clave de la infracción</string>
 
-    <string name="officers_ok">Si tienen la facultad de infraccionar</string>
+    <string name="officers_ok">Este agente sí tienen la facultad de infraccionarte.</string>
 
-    <string name="officers_btn_evaluate">Evaluar\nProceso</string>
+    <string name="officers_btn_evaluate">Evalua el proceso de la infracción</string>
     <string name="title_officer">¿Te pueden infraccionar?</string>
     <string name="subtitle_officer">Consulta la lista de oficiales de tránsito que pueden infraccionarte.</string>
     <string name="btn_officer">Buscar agente</string>
