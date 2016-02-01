@@ -79,7 +79,7 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
     public void setUpdateSwipeLayout(){
         swipe_container = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         swipe_container.setOnRefreshListener(this);
-        swipe_container.setColorScheme(android.R.color.holo_blue_bright,
+        swipe_container.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
