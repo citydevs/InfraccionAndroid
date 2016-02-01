@@ -36,6 +36,8 @@
             <mx.citydevs.hackcdmx.views.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_weight=".5"
                 android:text="@string/txt_section4"
                 android:textColor="@color/colorWhite"
