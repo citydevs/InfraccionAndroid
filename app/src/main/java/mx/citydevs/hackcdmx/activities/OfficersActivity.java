@@ -1,4 +1,4 @@
-package mx.citydevs.hackcdmx;
+package mx.citydevs.hackcdmx.activities;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -24,12 +24,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import mx.citydevs.hackcdmx.adapters.InfractionsListViewAdapter;
+import mx.citydevs.hackcdmx.R;
 import mx.citydevs.hackcdmx.adapters.OfficerListViewAdapter;
-import mx.citydevs.hackcdmx.beans.Infraction;
 import mx.citydevs.hackcdmx.beans.Officer;
 import mx.citydevs.hackcdmx.database.DBHelper;
-import mx.citydevs.hackcdmx.dialogues.Dialogues;
 import mx.citydevs.hackcdmx.httpconnection.HttpConnection;
 import mx.citydevs.hackcdmx.parser.GsonParser;
 import mx.citydevs.hackcdmx.utils.Utils;
@@ -37,37 +35,41 @@ import mx.citydevs.hackcdmx.utils.Utils;
 /**
  * Created by zace3d on 3/7/15.
  */
-public class InfractionsActivity extends ActionBarActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class OfficersActivity extends ActionBarActivity implements SwipeRefreshLayout.OnRefreshListener {
 
-    private String TAG_CLASS = InfractionsActivity.class.getSimpleName();
+    private String TAG_CLASS = OfficersActivity.class.getSimpleName();
     DBHelper BD = null;
     SQLiteDatabase bd = null;
     public static int LOCAL = 0;
     public static int CONSULTA = 1;
     SwipeRefreshLayout swipe_container;
-    ListView lvInfractions;
+    ListView lvOfficers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_infraction);
-
+        setContentView(R.layout.activity_officer);
         setSupportActionBar();
         setUpdateSwipeLayout();
-        getInfractionsData(LOCAL);
+        getOfficersData(LOCAL);
     }
+
+
 
     protected void setSupportActionBar() {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.actionbar);
         mToolbar.setTitle("");
         mToolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         mToolbar.getBackground().setAlpha(255);
+
+
         mToolbar.setBackgroundColor(getResources().getColor(R.color.colorAppBlue));
 
         ImageView actionbarIcon = (ImageView) mToolbar.findViewById(R.id.actionbar_icon);
         actionbarIcon.setVisibility(View.GONE);
 
         TextView actionbarTitle = (TextView) mToolbar.findViewById(R.id.actionbar_title);
-        actionbarTitle.setTextColor(getResources().getColor(R.color.colorAppBlue));
+        actionbarTitle.setTextColor(getResources().getColor(R.color.colorWhite));
 
         ImageView actionbar_reload = (ImageView)mToolbar.findViewById(R.id.actionbar_reload);
         actionbar_reload.setVisibility(View.GONE);
@@ -77,7 +79,9 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
     }
+
     public void setUpdateSwipeLayout(){
         swipe_container = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         swipe_container.setOnRefreshListener(this);
@@ -86,38 +90,40 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        ((TextView)findViewById(R.id.infoText)).setText(new Utils().getPreferences(InfractionsActivity.this, "update_infractions", "Para actualizar baje la lista"));
+        ((TextView)findViewById(R.id.infoText)).setText(new Utils().getPreferences(OfficersActivity.this, "update_officers", "Para actualizar baje la lista"));
     }
 
+    private void initUI(ArrayList<Officer> listOfficers) {
+        lvOfficers = (ListView) findViewById(R.id.officers_lv);
 
-    private void initUI(ArrayList<Infraction> listOfficers) {
-         lvInfractions = (ListView) findViewById(R.id.infractions_lv);
-
-        ArrayList<Infraction> newList = new ArrayList();
-        for (Infraction infraction : listOfficers) {
-            if (infraction.getDescripcion() != null)
-                newList.add(infraction);
+        ArrayList<Officer> newList = new ArrayList();
+        for (Officer officer : listOfficers) {
+            if (officer.getPlaca() != null)
+                newList.add(officer);
         }
 
-        final InfractionsListViewAdapter adapter = new InfractionsListViewAdapter(this, newList);
-        lvInfractions.setAdapter(adapter);
+        final OfficerListViewAdapter adapter = new OfficerListViewAdapter(this, newList);
+        lvOfficers.setAdapter(adapter);
 
-        final EditText actvInfractions = (EditText) findViewById(R.id.infractions_et_filter);
-        actvInfractions.addTextChangedListener(new TextWatcher() {
+        final EditText actvOfficers = (EditText) findViewById(R.id.officers_et_officers);
+        actvOfficers.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                String text = actvInfractions.getText().toString().toLowerCase(Locale.getDefault());
+                String text = actvOfficers.getText().toString().toLowerCase(Locale.getDefault());
                 adapter.filter(text);
             }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
         });
 
-        lvInfractions.setOnScrollListener(new AbsListView.OnScrollListener() {
+
+        lvOfficers.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
 
@@ -126,43 +132,41 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 int topRowVerticalPosition =
-                        (lvInfractions == null || lvInfractions.getChildCount() == 0) ?
-                                0 : lvInfractions.getChildAt(0).getTop();
+                        (lvOfficers == null || lvOfficers.getChildCount() == 0) ?
+                                0 : lvOfficers.getChildAt(0).getTop();
                 swipe_container.setEnabled(firstVisibleItem == 0 && topRowVerticalPosition >= 0);
             }
         });
     }
 
-    private void getInfractionsData(int val) {
-        String infraction= null;
+    private void getOfficersData(int val) {
+    String cops= null;
         try {
-            BD = new DBHelper(InfractionsActivity.this);
-            bd = BD.loadDataBase(InfractionsActivity.this, BD);
-            infraction = BD.getInfractions(bd);
+            BD = new DBHelper(OfficersActivity.this);
+            bd = BD.loadDataBase(OfficersActivity.this, BD);
+            cops =	BD.getPolicias(bd);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        if(infraction != null && val != CONSULTA){
+        if(cops != null && val != CONSULTA){
             Log.d("**************", "local");
-            llenaInfractions(infraction);
+            llenaCops(cops);
         }else{
             Log.d("**************", "consulta");
-            GetInfractionsPublicationsAsyncTask task =  new GetInfractionsPublicationsAsyncTask();
+            GetOfficersPublicationsAsyncTask task =  new GetOfficersPublicationsAsyncTask();
             task.execute();
         }
     }
 
-
-
-    private class GetInfractionsPublicationsAsyncTask extends AsyncTask<String, String, String> {
+    private class GetOfficersPublicationsAsyncTask extends AsyncTask<String, String, String> {
         private ProgressDialog dialog;
 
-        public GetInfractionsPublicationsAsyncTask() {}
+        public GetOfficersPublicationsAsyncTask() {}
 
         @Override
         protected void onPreExecute() {
-            dialog = new ProgressDialog(InfractionsActivity.this);
-            dialog.setMessage(getResources().getString(R.string.getdata_loading_infractions));
+            dialog = new ProgressDialog(OfficersActivity.this);
+            dialog.setMessage(getResources().getString(R.string.getdata_loading_officers));
             dialog.setCanceledOnTouchOutside(false);
             dialog.setCancelable(true);
             dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -176,8 +180,8 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
 
         @Override
         protected String doInBackground(String... params) {
-            String result = HttpConnection.GET(HttpConnection.INFRACTIONS);
-            BD.setInfractions(bd,result);
+            String result = HttpConnection.GET(HttpConnection.OFFICERS);
+            BD.setCops(bd,result);
             return result;
         }
 
@@ -187,11 +191,11 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
                 dialog.dismiss();
             }
             if (result != null) {
-                llenaInfractions(result);
+                llenaCops(result);
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm");
                 String currentDateandTime = sdf.format(new Date());
 
-                new Utils().setPreference(InfractionsActivity.this, "update_infractions", String.format("Actualizado: %s", currentDateandTime));
+                new Utils().setPreference(OfficersActivity.this,"update_officers",String.format("Actualizado: %s", currentDateandTime));
                 ((TextView)findViewById(R.id.infoText)).setText(String.format("Actualizado: %s", currentDateandTime));
             }
         }
@@ -201,9 +205,9 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
      * llena el lista con array de policias
      * @param result
      */
-    public void llenaInfractions(String result){
+    public void llenaCops(String result){
         try {
-            ArrayList<Infraction> listOfficers = (ArrayList<Infraction>) GsonParser.getInfractionsListFromJSON(result);
+            ArrayList<Officer> listOfficers = (ArrayList<Officer>) GsonParser.getOfficerListFromJSON(result);
 
             if (listOfficers != null) {
                 initUI(listOfficers);
@@ -215,8 +219,9 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
         swipe_container.setRefreshing(false);
     }
 
+
     @Override
     public void onRefresh() {
-        getInfractionsData(CONSULTA);
+        getOfficersData(CONSULTA);
     }
 }

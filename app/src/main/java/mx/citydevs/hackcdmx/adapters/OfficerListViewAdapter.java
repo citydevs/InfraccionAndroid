@@ -2,7 +2,6 @@ package mx.citydevs.hackcdmx.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import mx.citydevs.hackcdmx.OfficerResultActivity;
+import mx.citydevs.hackcdmx.activities.OfficerResultActivity;
 import mx.citydevs.hackcdmx.R;
 import mx.citydevs.hackcdmx.beans.Officer;
 import mx.citydevs.hackcdmx.views.CustomTextView;

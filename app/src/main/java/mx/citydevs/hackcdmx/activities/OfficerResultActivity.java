@@ -1,4 +1,4 @@
-package mx.citydevs.hackcdmx;
+package mx.citydevs.hackcdmx.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import mx.citydevs.hackcdmx.R;
 import mx.citydevs.hackcdmx.beans.Officer;
 import mx.citydevs.hackcdmx.views.CustomTextView;
 

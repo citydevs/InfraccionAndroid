@@ -1,4 +1,4 @@
-package mx.citydevs.hackcdmx;
+package mx.citydevs.hackcdmx.activities;
 
 import java.util.Locale;
 
@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.viewpagerindicator.CirclePageIndicator;
+
+import mx.citydevs.hackcdmx.R;
 
 public class TutorialActivity extends ActionBarActivity  {
 

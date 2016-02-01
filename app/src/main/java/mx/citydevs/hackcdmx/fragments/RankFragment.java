@@ -1,24 +1,13 @@
 package mx.citydevs.hackcdmx.fragments;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import mx.citydevs.hackcdmx.R;
-import mx.citydevs.hackcdmx.RankActivity;
-import mx.citydevs.hackcdmx.beans.Officer;
-import mx.citydevs.hackcdmx.dialogues.Dialogues;
-import mx.citydevs.hackcdmx.httpconnection.HttpConnection;
+import mx.citydevs.hackcdmx.activities.RankActivity;
 import mx.citydevs.hackcdmx.views.CustomTextView;
 
 /**

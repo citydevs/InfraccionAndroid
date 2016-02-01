@@ -1,4 +1,4 @@
-package mx.citydevs.hackcdmx;
+package mx.citydevs.hackcdmx.activities;
 
 import android.app.ProgressDialog;
 import android.graphics.Point;
@@ -6,20 +6,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Display;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
+import mx.citydevs.hackcdmx.R;
 import mx.citydevs.hackcdmx.adapters.PublicationPagerAdapter;
 import mx.citydevs.hackcdmx.dialogues.Dialogues;
 import mx.citydevs.hackcdmx.fragments.RankFragment;
