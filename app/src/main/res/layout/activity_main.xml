@@ -48,8 +48,8 @@
                 android:text="@string/subtitle_officer"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center_horizontal"
-                android:textSize="@dimen/abc_text_size_small_material"
                 app:typeface="Tw_Cen_MT"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:paddingBottom="5dp"/>
 
             <Button
