@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">IN/FRACCIÓN</string>
+    <string name="action_aboutme">Acerca de</string>
+    <string name="evalua_label">Evalúa el proceso</string>
+    <string name="title_name">Esta es una aplicación para la SSP</string>
+    <string name="menu_officers">¿TE PUEDE INFRACCIONAR?</string>
+    <string name="menu_infractions">CONSULTA TU INFRACCIÓN</string>
+    <string name="getdata_loading_officers">Obteniendo información de oficiales</string>
+    <string name="getdata_loading_infractions">Obteniendo información de infracciones</string>
+    <string name="postrank_loading">Enviando respuestas</string>
+    <string name="main_description">Consulta quién te puede infraccionar y el tipo de sanción que te deben aplicar</string>
+    <string name="officers_name_input">Nombre o placa del oficial de tránsito</string>
+    <string name="infractions_name_input">Ingresa palabra clave de la infracción</string>
+    <string name="officers_ok">Este agente sí tienen la facultad de infraccionarte.</string>
+    <string name="officers_btn_evaluate">Evalua el proceso de la infracción</string>
+    <string name="title_officer">¿Te pueden infraccionar?</string>
+    <string name="subtitle_officer">Consulta la lista de oficiales de tránsito que pueden infraccionarte.</string>
+    <string name="btn_officer">Buscar agente</string>
+    <string name="title_infraction">Consulta tu infracción</string>
+    <string name="subtitle_infraction">Consulta el monto que debes pagar por la infracción que cometiste.</string>
+    <string name="btn_infraction">Buscar infracción</string>
+    <string name="main_menu">Menú</string>
+    <string name="text_acercade">Aplicación desarrollada por el colectivo ciudadano CityDevs. La idea original fue ganadora del HackCDMX 2015, el festival de datos de la Ciudad de México organizado por el Laboratorio para la Ciudad. Los datos utilizados son otorgados, creados y resguardados por la SSPDF para este proyecto.</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="libreta">libreta</string>
+    <string name="title_activity_tutorial">tutorial</string>
+    <string name="txt_section1">En la ciudad de México sólo los agentes de tránsito habilitados con un handheld pueden infraccionarte.</string>
+    <string name="txt_section2">Si un agente de tránsito te detiene, puedes consultar su nombre y número de placa y saber si tiene la facultad para infraccionarte.</string>
+    <string name="txt_section3">Si cometiste una infracción evalúa el proceso que el agente siguió en base al artículo 59 del Reglamento de Tránsito Metropolitano.</string>
+    <string name="txt_section4">Consulta el monto total y las sanciones que aplican por la infracción que cometiste.</string>
+    <string name="update_date">Actualizado:</string>
+    <string name="update_instrucciones">Para actualizar baje la lista</string>
+
+
+    <!--Preguntas-->
+    <string name="question_1">¿El oficial se identificó con su nombre y número de placa?</string>
+    <string name="question_2">¿El oficial señaló la infracción cometida?</string>
+    <string name="question_3">¿El oficial mostró el artículo del reglamento que lo fundamenta?</string>
+    <string name="question_4">¿La sanción coincidió con la infracción mostrada?</string>
+    <string name="question_5">¿El oficial solicitó y devolvió documentos?</string>
+    <string name="question_6">¿El oficial entregó copia de la infracción?</string>
+
+
+    <!--Tutorial-->
+    <string name="tutorial_next">SIGUIENTE</string>
+    <string name="tutorial_exit">SALIR</string>
+
+    <!--infraccion-->
+    <string name="infraccion_Monto">Monto:</string>
+    <string name="infraccion_Puntos">Puntos:</string>
+    <string name="infraccion_corralon">Amerita corralón:</string>
+</resources>

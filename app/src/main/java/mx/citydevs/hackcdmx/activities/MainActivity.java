@@ -12,9 +12,9 @@ import mx.citydevs.hackcdmx.R;
 
 /**
  * Created by zace3d on 3/7/15.
+ * @update by mikesaurio
  */
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
-    private AlertDialog customDialog= null;	//Creamos el dialogo generico
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         initUI();
     }
 
-
+    /**
+     * creación e instancia del UI
+     */
     private void initUI() {
         findViewById(R.id.main_btn_officer).setOnClickListener(this);
         findViewById(R.id.main_btn_infraction).setOnClickListener(this);
@@ -34,54 +36,23 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_acerca_de:
-               // mostrarAercaDe().show();
-                startTutorialIntent();
+                startIntentClass(TutorialActivity.class);
                 break;
             case R.id.main_btn_officer:
-                startOfficersIntent();
-
+                startIntentClass(OfficersActivity.class);
                 break;
             case R.id.main_btn_infraction:
-                startInfractionsIntent();
+                startIntentClass(InfractionsActivity.class);
                 break;
         }
     }
 
-    private void startOfficersIntent() {
-        Intent intent = new Intent(getBaseContext(), OfficersActivity.class);
-        startActivity(intent);
-    }
-
-    private void startInfractionsIntent() {
-        Intent intent = new Intent(getBaseContext(), InfractionsActivity.class);
-        startActivity(intent);
-    }
-
-    private void startTutorialIntent() {
-        Intent intent = new Intent(getBaseContext(), TutorialActivity.class);
-        startActivity(intent);
-    }
-
     /**
-     * Dialogo que muestra el acerca de
-     *
-     * @return Dialog (regresa el dialogo creado)
-     **/
-    public Dialog mostrarAercaDe()
-    {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        View view = getLayoutInflater().inflate(R.layout.dialogo_acercade, null);
-        builder.setView(view);
-        builder.setCancelable(true);
-        //escucha del boton aceptar
-        ((Button) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                customDialog.dismiss();
-            }
-        });
-        return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
+     *Hace un StartIntent a una class activity
+     * @param class_ (Class) Activity a iniciar
+     */
+    private void startIntentClass(Class class_){
+        Intent intent = new Intent(getBaseContext(), class_);
+        startActivity(intent);
     }
 }

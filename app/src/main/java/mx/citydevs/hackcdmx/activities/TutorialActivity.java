@@ -63,9 +63,9 @@ public class TutorialActivity extends ActionBarActivity  {
             public void onPageSelected(int position) {
 
                 if (position < 4) {
-                    btn_next.setText("SIGUIENTE");
+                    btn_next.setText(getResources().getString(R.string.tutorial_next));
                 } else {
-                    btn_next.setText("SALIR");
+                    btn_next.setText(getResources().getString(R.string.tutorial_exit));
                 }
             }
 

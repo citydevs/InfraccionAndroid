@@ -84,7 +84,11 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        ((TextView)findViewById(R.id.infoText)).setText(new Utils().getPreferences(InfractionsActivity.this, "update_infractions", "Para actualizar baje la lista"));
+        ((TextView)findViewById(R.id.infoText)).
+                setText(new Utils().
+                        getPreferences(InfractionsActivity.this,
+                                "update_infractions",
+                                getResources().getString(R.string.update_instrucciones)));
     }
 
 
@@ -189,8 +193,13 @@ public class InfractionsActivity extends ActionBarActivity implements SwipeRefre
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm");
                 String currentDateandTime = sdf.format(new Date());
 
-                new Utils().setPreference(InfractionsActivity.this, "update_infractions", String.format("Actualizado: %s", currentDateandTime));
-                ((TextView)findViewById(R.id.infoText)).setText(String.format("Actualizado: %s", currentDateandTime));
+                new Utils().
+                        setPreference(InfractionsActivity.this
+                                , "update_infractions",
+                                String.format(getResources().getString(R.string.update_date) + " %s", currentDateandTime));
+
+                ((TextView)findViewById(R.id.infoText)).
+                        setText(String.format(getResources().getString(R.string.update_date) + " %s", currentDateandTime));
             }
         }
     }

@@ -64,12 +64,12 @@ public class RankActivity extends FragmentActivity {
         PublicationPagerAdapter mPagerAdapter = new PublicationPagerAdapter(getSupportFragmentManager());
 
         ArrayList<String> listQuestions = new ArrayList<>();
-        listQuestions.add("¿El oficial se identificó con su nombre y número de placa?");
-        listQuestions.add("¿El oficial señaló la infracción cometida?");
-        listQuestions.add("¿El oficial mostró el artículo del reglamento que lo fundamenta?");
-        listQuestions.add("¿La sanción coincidió con la infracción mostrada?");
-        listQuestions.add("¿El oficial solicitó y devolvió documentos?");
-        listQuestions.add("¿El oficial entregó copia de la infracción?");
+        listQuestions.add(getResources().getString(R.string.question_1));
+        listQuestions.add(getResources().getString(R.string.question_2));
+        listQuestions.add(getResources().getString(R.string.question_3));
+        listQuestions.add(getResources().getString(R.string.question_4));
+        listQuestions.add(getResources().getString(R.string.question_5));
+        listQuestions.add(getResources().getString(R.string.question_6));
 
         for (int i = 0; i < listQuestions.size(); i++) {
             mPagerAdapter.addFragment(RankFragment.newInstance(i, listQuestions.get(i)));
@@ -79,7 +79,7 @@ public class RankActivity extends FragmentActivity {
 
         viewPager.setAdapter(mPagerAdapter);
         viewPager.setPageMargin(0);
-        viewPager.setOnPageChangeListener(RankOnPageChangeListener);
+        viewPager.addOnPageChangeListener(RankOnPageChangeListener);
 
         // Viewpager indicator
         CirclePageIndicator titleIndicator = (CirclePageIndicator) findViewById(R.id.rank_pager_indicator);
@@ -100,8 +100,6 @@ public class RankActivity extends FragmentActivity {
         listAnswers.add(current_index, answer);
 
         viewPager.setCurrentItem(++current_index, true);
-
-        // Dialogues.Toast(getBaseContext(), "INDEX: " + current_index, Toast.LENGTH_SHORT);
 
         if (current_index == COUNT) {
             PostQuestionPublicationsAsyncTask task = new PostQuestionPublicationsAsyncTask();

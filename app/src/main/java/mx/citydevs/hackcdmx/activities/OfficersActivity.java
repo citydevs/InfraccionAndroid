@@ -85,12 +85,15 @@ public class OfficersActivity extends ActionBarActivity implements SwipeRefreshL
     public void setUpdateSwipeLayout(){
         swipe_container = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         swipe_container.setOnRefreshListener(this);
-        swipe_container.setColorScheme(android.R.color.holo_blue_bright,
+        swipe_container.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        ((TextView)findViewById(R.id.infoText)).setText(new Utils().getPreferences(OfficersActivity.this, "update_officers", "Para actualizar baje la lista"));
+        ((TextView)findViewById(R.id.infoText)).
+                setText(new Utils().getPreferences(OfficersActivity.this,
+                        "update_officers",
+                        getResources().getString(R.string.update_instrucciones)));
     }
 
     private void initUI(ArrayList<Officer> listOfficers) {
@@ -195,8 +198,12 @@ public class OfficersActivity extends ActionBarActivity implements SwipeRefreshL
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm");
                 String currentDateandTime = sdf.format(new Date());
 
-                new Utils().setPreference(OfficersActivity.this,"update_officers",String.format("Actualizado: %s", currentDateandTime));
-                ((TextView)findViewById(R.id.infoText)).setText(String.format("Actualizado: %s", currentDateandTime));
+                new Utils().
+                        setPreference(OfficersActivity.this, "update_officers",
+                                String.format(getResources().getString(R.string.update_date) + " %s", currentDateandTime));
+
+                ((TextView)findViewById(R.id.infoText))
+                        .setText(String.format(getResources().getString(R.string.update_date)+" %s", currentDateandTime));
             }
         }
     }

@@ -75,13 +75,18 @@ public class InfractionsListViewAdapter extends BaseAdapter {
 
         holder.infraction.setText(data.get(position).getDescripcion());
 
-        holder.monto.setText(String.format(Locale.getDefault(), "Monto: $ %s", Double.parseDouble(data.get(position).getDias_sansion()) * 69.95));
+        holder.monto.
+                setText(String.format(Locale.getDefault(),
+                        mContext.getResources().getString(R.string.infraccion_Monto) + " $ %s", Double.parseDouble(data.get(position).getDias_sansion()) * 71.68));
 
         holder.ley.setText(String.format(Locale.getDefault(), "%s %s %s %s", data.get(position).getArticulo(),data.get(position).getFraccion(),data.get(position).getParrafo(),data.get(position).getInciso()));
 
-        holder.puntos.setText(String.format(Locale.getDefault(), "Puntos: %s", data.get(position).getPuntos()));
+        holder.puntos.setText(String.format(Locale.getDefault(),
+                mContext.getResources().getString(R.string.infraccion_Puntos)+" %s", data.get(position).getPuntos()));
 
-        holder.corralon.setText(String.format(Locale.getDefault(), "Amerita corralón: %s", data.get(position).getCorralon()));
+        holder.corralon.
+                setText(String.format(Locale.getDefault(),
+                        mContext.getResources().getString(R.string.infraccion_corralon) + " %s", data.get(position).getCorralon()));
 
         return view;
     }
