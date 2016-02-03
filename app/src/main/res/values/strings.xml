@@ -1,2 +1,52 @@
 <resources>
+    <string name="app_name">IN/FRACCIÓN</string>
+    <string name="action_aboutme">About</string>
+    <string name="evalua_label">Review the process</string>
+    <string name="title_name">This application is for the Police Department</string>
+    <string name="menu_officers">¿CAN FINE YOU?</string>
+    <string name="menu_infractions">LOOK UP YOUR FINE</string>
+    <string name="getdata_loading_officers">Retrieving officers information</string>
+    <string name="getdata_loading_infractions">Retrieving fine information</string>
+    <string name="postrank_loading">Sending answers</string>
+    <string name="main_description">Check if a transit officer can fine you and the correct sanction that applies</string>
+    <string name="officers_name_input">Officer´s name or badge</string>
+    <string name="infractions_name_input">Input a keyword for the traffic violation description</string>
+    <string name="officers_ok">This agent can fine you</string>
+    <string name="officers_btn_evaluate">Rate the fining process</string>
+    <string name="title_officer">¿Can you be fined?</string>
+    <string name="subtitle_officer">Look up the transit officers list able to fine you.</string>
+    <string name="btn_officer">Search agent</string>
+    <string name="title_infraction">Look up your fine</string>
+    <string name="subtitle_infraction">Look up the ammount you should pay for the traffic violation you commit.</string>
+    <string name="btn_infraction">Search fines</string>
+    <string name="main_menu">Menu</string>
+    <string name="text_acercade">Application developed by CityDevs citizen collective. Original idea winner of HackCDMX 2015, Mexico City data festival organized by the Lab for the City. Data used on this project is granted, created and shelter by the Mexico City Police Department.</string>
+    <string name="btn_aceptar">Accept</string>
+    <string name="libreta">Notebook</string>
+    <string name="title_activity_tutorial">tutorial</string>
+    <string name="txt_section1">In Mexico City, only transit agents identified and with a handheld device can fine you..</string>
+    <string name="txt_section2">If a transit agent stops you, you can look up the name and badge number and check if it is able to fine you.</string>
+    <string name="txt_section3">I fou commit a transit violation you can review the process that the agent followed, based on Article 59 of the Metropolitan Transit Law.</string>
+    <string name="txt_section4">Look up the ammount and sanctions that applies for the transit violation you commit.</string>
+    <string name="update_date">Updated:</string>
+    <string name="update_instrucciones">To update, download the list</string>
+
+
+    <!--Preguntas-->
+    <string name="question_1">¿Did the officers identified themselfs with name and badge number?</string>
+    <string name="question_2">¿Did the officer pointed out the commited violation?</string>
+    <string name="question_3">¿Did the officer pointed out the violation legal basis (article number)?</string>
+    <string name="question_4">¿Did the fine match the violation pointed out?</string>
+    <string name="question_5">¿Did the officer required and returned your documents?</string>
+    <string name="question_6">¿Did the officer give you a copy of your fine?</string>
+
+
+    <!--Tutorial-->
+    <string name="tutorial_next">NEXT</string>
+    <string name="tutorial_exit">EXIT</string>
+
+    <!--infraccion-->
+    <string name="infraccion_Monto">Ammount:</string>
+    <string name="infraccion_Puntos">Points:</string>
+    <string name="infraccion_corralon">Able to be towed away:</string>
 </resources>
